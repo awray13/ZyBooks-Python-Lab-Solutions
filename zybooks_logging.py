@@ -56,7 +56,7 @@ def query_log(file_name, level_number):
     with open(file_name, 'r') as file:
         for line in file:
             if line.startswith(level_prefix):
-                print(line[len(level_prefix):].strip(), end='\n')
+                print(line[len(level_prefix):].strip(), end='\n\n')
 
 def main():
     # Accept user input for the file name and logging level number on one line
