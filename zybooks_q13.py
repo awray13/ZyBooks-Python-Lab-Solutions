@@ -9,22 +9,38 @@ The template code shows a function for hashing passwords, but it is using a weak
 
 Hint: use hex instead of binary.
 
+For example, if the input is:
+Password
+
+The output to the console will be the following:
+545e50bcc34933b23852a89857e05d6a524b2101e79858d6f65c99a36be4e862
+
+Alternatively, if the input is:
+Love3Python
+
+The output to the console will be the following:
+c9e1c3bc7cf1f2c1b01296085d57acd66f90921dcc55c08a0bd6744b19aecb8c
+
 """
 import hashlib
 
 def hash_password(pwd):
     # encode password string to bytes
-    enc_pwd = pwd.encode()
+    enc_pwd = pwd.encode('utf-8')
     
     # call the sha256(...) function returns a hash object
     d = hashlib.sha256(enc_pwd)
     
     # generate binary hash of password string in hexidecimal
-    hash = d.hexdigest()
+    binary_hash = d.digest()
+    hex_hash = d.hexdigest()
     
-    return hash
+    return binary_hash, hex_hash
     
 if __name__ == '__main__':
     pwd = input()
     
-    print(hash_password(pwd))
+    binary_hash, hex_hash = hash_password(pwd)
+    
+    print(binary_hash)
+    print(hex_hash)
