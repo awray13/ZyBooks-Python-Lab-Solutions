@@ -18,8 +18,9 @@ def Redirect():
 def GetUserID():
     return 1234
 
-if GetUserID() != ownerID:  # this is just a simulation, this line is typically !$_GET['userID'] === object.ownerID
+if (not GetUserID() == ownerID):  # this is just a simulation, this line is typically !$_GET['userID'] === object.ownerID
     print("You are not allowed to view this data")
     Redirect()
 
-ShowData()
+else:
+    ShowData()
